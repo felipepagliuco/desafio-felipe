@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "4907e48f-7d0a-4467-bb3e-c3279357d631",
+		"name": "Tests API PESCA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Retorna todos os peixes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://6008f7120a54690017fc2796.mockapi.io/pesca/peixes",
+					"protocol": "https",
+					"host": [
+						"6008f7120a54690017fc2796",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"pesca",
+						"peixes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar um novo peixe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"Created\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Tucunare\",\n    \"especie\": \"tucunas\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://6008f7120a54690017fc2796.mockapi.io/pesca/peixes",
+					"protocol": "https",
+					"host": [
+						"6008f7120a54690017fc2796",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"pesca",
+						"peixes"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar dados de um peixe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\":\"Tucuna_alterado\",\n    \"especie\":\"Especie_tucuna_alterado\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://6008f7120a54690017fc2796.mockapi.io/pesca/peixes/1",
+					"protocol": "https",
+					"host": [
+						"6008f7120a54690017fc2796",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"pesca",
+						"peixes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar peixe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://6008f7120a54690017fc2796.mockapi.io/pesca/peixes/38",
+					"protocol": "https",
+					"host": [
+						"6008f7120a54690017fc2796",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"pesca",
+						"peixes",
+						"38"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "peixe",
+			"value": "https://6008f7120a54690017fc2796.mockapi.io/pesca/peixe/"
+		}
+	]
+}
